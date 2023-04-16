@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model notes {
+  id      Int    @id(map: "notes_pk") @default(autoincrement())
+  body    Json   @db.Json
+  userId  Int
+  updated String
+  users   users  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "notes_fk0")
+}
+
+model users {
+  id       Int     @id(map: "users_pk") @default(autoincrement())
+  name     String
+  email    String  @unique
+  password String
+  notes    notes[]
+  sessions       sessions[]
+}
+
+model sessions {
+  id       Int    @id @default(autoincrement()) 
+  token    String @unique
+  username String
+  user     users  @relation(fields: [userId], references: [id])
+  userId   Int   
+}

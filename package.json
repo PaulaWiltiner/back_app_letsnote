@@ -1,0 +1,57 @@
+{
+  "name": "projeto21-autoral-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run prisma:migrate:deploy && node dist/src/server.js",
+    "dev": "nodemon src/server.ts",
+    "test": "dotenv -e .env.test npm run prisma:migrate:deploy & dotenv -e .env.test jest -- -i",
+    "prisma:migrate:dev": "prisma migrate dev",
+    "prisma:migrate:deploy": "prisma migrate deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulaWiltiner/projeto21-autoral-backend.git"
+  },
+  "author": "paula",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulaWiltiner/projeto21-autoral-backend/issues"
+  },
+  "homepage": "https://github.com/PaulaWiltiner/projeto21-autoral-backend#readme",
+  "dependencies": {
+    "@prisma/client": "^4.12.0",
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.14",
+    "@types/joi": "^17.2.3",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/nodemon": "^1.19.2",
+    "@types/pg": "^8.6.5",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-async-errors": "^3.1.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "@types/faker": "^6.6.9",
+    "@types/jest": "^29.0.3",
+    "@types/supertest": "^2.0.12",
+    "faker": "^6.6.6",
+    "jest": "^29.0.3",
+    "prisma": "^4.12.0",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.0.1",
+    "typescript": "^4.8.3"
+  }
+}
