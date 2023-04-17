@@ -8,7 +8,7 @@ WORKDIR /usr/src
 COPY . .
 
 # "expoe" a porta 5000
-EXPOSE 5001
+EXPOSE 22
 
 # baixa as dependências
 RUN npm i

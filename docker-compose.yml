@@ -13,7 +13,7 @@ services:
     container_name: node
     build: .
     ports:
-      - 5001:5001
+      - 22:22
     depends_on:
       - postgres
     env_file:
